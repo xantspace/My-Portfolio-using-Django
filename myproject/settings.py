@@ -26,7 +26,9 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-%@(012cc-6%o)h$5j$(nug+bx*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['my-portfolio-using-django.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']# ALLOWED_HOSTS = ['my-portfolio-using-django.onrender.com', 'localhost', '127.0.0.1']
+
+CSRF_TRUSTED_ORIGINS = ['https://my-portfolio-using-django.onrender.com']
 
 # Application definition
 
@@ -118,3 +120,5 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR/'static']
 STATIC_ROOT = "staticfiles"
+
+CSRF_TRUSTED_ORIGINS = ['my-portfolio-using-django.onrender.com']
