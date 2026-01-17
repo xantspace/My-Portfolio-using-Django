@@ -41,8 +41,8 @@
         }
 
         .logo {
-           width: 150px;
-           
+           width: 75px;
+           border-radius: 50%;
         }
 
         .nav-links {

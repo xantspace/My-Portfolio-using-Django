@@ -1,0 +1,22 @@
+databases:
+  - name: myportfolio_db
+    databaseName: myportfolio
+    user: myportfolio_user
+
+services:
+  - type: web
+    name: myportfolio
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn myproject.wsgi:application"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: myportfolio_db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: 'False'
+      - key: WEB_CONCURRENCY
+        value: 4
